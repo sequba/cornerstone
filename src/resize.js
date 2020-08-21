@@ -27,21 +27,21 @@ function setCanvasSize (element, canvas) {
     so (e.g. iPad or iPhone or perhaps enumerate the displays on the system.  I am choosing
     to be cautious here since I would rather not have bug reports or safety issues related to this
     scenario.
-
+    */
     var devicePixelRatio = window.devicePixelRatio;
     if(devicePixelRatio === undefined) {
         devicePixelRatio = 1.0;
     }
-    */
+
 
   // Avoid setting the same value because it flashes the canvas with IE and Edge
   if (canvas.width !== element.clientWidth) {
-    canvas.width = element.clientWidth;
+    canvas.width = element.clientWidth * devicePixelRatio;
     canvas.style.width = `${element.clientWidth}px`;
   }
   // Avoid setting the same value because it flashes the canvas with IE and Edge
   if (canvas.height !== element.clientHeight) {
-    canvas.height = element.clientHeight;
+    canvas.height = element.clientHeight * devicePixelRatio;
     canvas.style.height = `${element.clientHeight}px`;
   }
 }

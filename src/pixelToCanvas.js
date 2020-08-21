@@ -16,6 +16,7 @@ export default function (element, pt) {
   const enabledElement = getEnabledElement(element);
   const transform = getTransform(enabledElement);
 
+  const res = transform.transformPoint(pt.x, pt.y);
 
-  return transform.transformPoint(pt.x, pt.y);
+  return { x: res.x * 2, y: res.y * 2 };
 }
